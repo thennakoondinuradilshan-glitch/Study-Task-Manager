@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Adaptive Study Plan Generator - Manage your study tasks with arrays and linked lists" />
+  <meta name="theme-color" content="#0f172a" />
+  <title>Study Task Manager - Arrays & Linked Lists</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="page1" class="responsive-layout">
+  <!-- Navigation Bar -->
+  <nav class="top-navbar">
+    <div class="navbar-container">
+      <div class="navbar-brand">
+        <span class="navbar-badge">📚</span>
+        <span class="navbar-title">Study Task Manager</span>
+      </div>
+      <div class="navbar-menu">
+        <button class="navbar-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-badge">📚</div>
+      <div>
+        <h1>Study Helper</h1>
+        <p>Create your study plan & learn algorithms</p>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html" data-page="index" class="nav-item">
+        <span class="nav-icon">🏠</span>
+        <div>
+          <span class="nav-label">Home</span>
+          <span class="nav-desc">Start here</span>
+        </div>
+      </a>
+      <a href="page1.html" data-page="page1" class="nav-item active">
+        <span class="nav-icon">📋</span>
+        <div>
+          <span class="nav-label">My Tasks</span>
+          <span class="nav-desc">Organize & plan</span>
+        </div>
+      </a>
+      <a href="page2.html" data-page="page2" class="nav-item">
+        <span class="nav-icon">🗺️</span>
+        <div>
+          <span class="nav-label">Topics Map</span>
+          <span class="nav-desc">How they connect</span>
+        </div>
+      </a>
+      <a href="page3.html" data-page="page3" class="nav-item">
+        <span class="nav-icon">⚡</span>
+        <div>
+          <span class="nav-label">Sort Tasks</span>
+          <span class="nav-desc">By importance</span>
+        </div>
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <p class="sidebar-info">💡 Learn DSA through practical study planning</p>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="main-content">
+    <div class="container">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <h2 class="hero-title">Adaptive Study Task Manager</h2>
+          <p class="hero-subtitle">Master Data Structures with practical study planning using Arrays and Linked Lists</p>
+        </div>
+        <div class="hero-actions">
+          <button class="btn btn-primary" data-action="choose-folder" type="button">📁 Choose Data Folder</button>
+          <button class="btn btn-secondary" data-action="save-input" type="button">💾 Save Tasks</button>
+          <button class="btn btn-secondary" data-action="run-backend" type="button">⚙️ Process Data</button>
+          <button class="btn btn-secondary" data-action="load-output" type="button">📊 View Results</button>
+        </div>
+        <div class="status-banner" id="statusMessage">Select the data folder, add tasks, and save input.txt to get started.</div>
+      </section>
+
+      <!-- Main Content Grid -->
+      <div class="content-grid">
+        <!-- Left Column: Form & Concepts -->
+        <div class="content-column">
+          <!-- Task Input Form -->
+          <section class="card">
+            <div class="card-header">
+              <h3 class="card-title">📝 Create New Study Task</h3>
+              <p class="card-subtitle">Add tasks to your adaptive study plan</p>
+            </div>
+            <form class="task-form" id="taskForm">
+              <div class="form-group">
+                <label for="taskName" class="form-label">Task Name <span class="required">*</span></label>
+                <input id="taskName" type="text" class="form-input" placeholder="e.g., Master Array Traversal" required />
+              </div>
+              <div class="form-group">
+                <label for="taskSubject" class="form-label">Subject <span class="required">*</span></label>
+                <input id="taskSubject" type="text" class="form-input" placeholder="e.g., Data Structures" required />
+              </div>
+              <div class="form-row">
+                <div class="form-group flex-1">
+                  <label for="taskHours" class="form-label">Study Hours <span class="required">*</span></label>
+                  <input id="taskHours" type="number" class="form-input" min="1" max="24" value="2" required />
+                </div>
+                <div class="form-group flex-1">
+                  <label for="taskPriority" class="form-label">Priority <span class="required">*</span></label>
+                  <select id="taskPriority" class="form-input" required>
+                    <option value="1">Low</option>
+                    <option value="2">Medium-Low</option>
+                    <option value="3" selected>Medium</option>
+                    <option value="4">Medium-High</option>
+                    <option value="5">High</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="taskDay" class="form-label">Preferred Day</label>
+                <select id="taskDay" class="form-input">
+                  <option value="">Auto-assign</option>
+                  <option value="Monday">Monday</option>
+                  <option value="Tuesday">Tuesday</option>
+                  <option value="Wednesday">Wednesday</option>
+                  <option value="Thursday">Thursday</option>
+                  <option value="Friday">Friday</option>
+                  <option value="Saturday">Saturday</option>
+                  <option value="Sunday">Sunday</option>
+                </select>
+              </div>
+              <div class="form-actions">
+                <button id="addTaskBtn" type="submit" class="btn btn-primary">➕ Add Task</button>
+                <button id="clearTasksBtn" type="button" class="btn btn-outline">🗑️ Clear All</button>
+              </div>
+            </form>
+          </section>
+
+          <!-- DSA Concepts Card -->
+          <section class="card">
+            <div class="card-header">
+              <h3 class="card-title">📖 DSA Concepts Used</h3>
+            </div>
+            <div class="concepts-grid">
+              <div class="concept-card">
+                <h4 class="concept-title">📦 Arrays</h4>
+                <ul class="concept-list">
+                  <li>Fixed-size weekly slot organization</li>
+                  <li>O(1) random access indexing</li>
+                  <li>Fast traversal operations</li>
+                  <li>Predictable memory layout</li>
+                </ul>
+              </div>
+              <div class="concept-card">
+                <h4 class="concept-title">🔗 Linked Lists</h4>
+                <ul class="concept-list">
+                  <li>Dynamic task insertion/deletion</li>
+                  <li>O(1) insertion at head/tail</li>
+                  <li>O(n) search operations</li>
+                  <li>Flexible memory allocation</li>
+                </ul>
+              </div>
+            </div>
+            <p class="helper-text">The backend processes your tasks using both data structures for optimal scheduling.</p>
+          </section>
+        </div>
+
+        <!-- Right Column: Lists & Schedule -->
+        <div class="content-column">
+          <!-- Current Tasks Panel -->
+          <section class="card">
+            <div class="card-header">
+              <h3 class="card-title">📋 Your Tasks</h3>
+              <span class="badge" id="taskCount">0</span>
+            </div>
+            <div id="taskList" class="task-list"></div>
+            <div class="empty-state" id="emptyTasks">
+              <p>No tasks added yet. Create your first study task above!</p>
+            </div>
+          </section>
+
+          <!-- Weekly Schedule Panel -->
+          <section class="card">
+            <div class="card-header">
+              <h3 class="card-title">📅 Weekly Schedule</h3>
+            </div>
+            <div class="schedule-container">
+              <table class="schedule-table">
+                <thead>
+                  <tr>
+                    <th>Day</th>
+                    <th>Subject</th>
+                    <th>Task</th>
+                    <th>Hours</th>
+                    <th>Priority</th>
+                  </tr>
+                </thead>
+                <tbody id="scheduleBody"></tbody>
+              </table>
+            </div>
+            <div class="empty-state" id="emptySchedule">
+              <p>Schedule will appear here after processing. Save and process your tasks!</p>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- Backend Output Section -->
+      <section class="card" style="margin-top: 28px;">
+        <div class="card-header">
+          <h3 class="card-title">📊 Backend Output</h3>
+          <p class="card-subtitle">Analysis results from the DSA algorithm processing</p>
+        </div>
+        <div class="output-container">
+          <pre id="outputText" class="output-text">No output loaded yet. Process your tasks to see detailed analysis.</pre>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="page-footer">
+        <p>💡 Study Helper uses Arrays for organized scheduling and Linked Lists for dynamic task management</p>
+        <p class="footer-meta">Build adaptive study plans using practical Data Structures concepts</p>
+      </footer>
+    </div>
+  </main>
+
+  <!-- Mobile Menu Script for Responsive Navigation -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+      const sidebar = document.getElementById('sidebar');
+      
+      if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function() {
+          sidebar.classList.toggle('mobile-open');
+          mobileMenuToggle.classList.toggle('active');
+        });
+      }
+    });
+  </script>
+
+  <script src="app.js"></script>
+</body>
+</html>
