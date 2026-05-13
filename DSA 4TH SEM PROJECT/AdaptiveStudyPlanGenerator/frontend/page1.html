@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arrays and Linked Lists</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="page1">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-badge">📚</div>
+      <div>
+        <h1>Study Helper</h1>
+        <p>Create your study plan & learn algorithms</p>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html" data-page="index">Home <span>Start here</span></a>
+      <a href="page1.html" data-page="page1">My Tasks <span>Organize & plan</span></a>
+      <a href="page2.html" data-page="page2">Topics Map <span>How they connect</span></a>
+      <a href="page3.html" data-page="page3">Sort Tasks <span>By importance</span></a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="page-shell fade-in">
+      <section class="hero">
+        <div class="hero-top">
+          <div>
+            <h2>Study Task Manager</h2>
+            <p>Use arrays to organize weekly study slots and linked lists to manage tasks dynamically.</p>
+          </div>
+          <div class="toolbar">
+            <button class="secondary" data-action="choose-folder" type="button">Choose Data Folder</button>
+            <button data-action="save-input" type="button">Save input.txt</button>
+            <button class="secondary" data-action="run-backend" type="button">Run Backend</button>
+            <button class="secondary" data-action="load-output" type="button">Load output.txt</button>
+          </div>
+        </div>
+        <div class="status" id="statusMessage">Select the data folder, add tasks, and save input.txt.</div>
+      </section>
+
+      <section class="grid two">
+        <div class="panel">
+          <h3>Add a Study Task</h3>
+          <div class="form-grid">
+            <div class="field"><label for="taskName">Task name</label><input id="taskName" type="text" placeholder="Revise arrays" /></div>
+            <div class="field"><label for="taskSubject">Subject</label><input id="taskSubject" type="text" placeholder="Data Structures" /></div>
+            <div class="field"><label for="taskHours">Study hours</label><input id="taskHours" type="number" min="1" value="2" /></div>
+            <div class="field"><label for="taskPriority">Priority</label><input id="taskPriority" type="number" min="1" max="5" value="3" /></div>
+            <div class="field"><label for="taskDay">Preferred day</label><input id="taskDay" type="text" placeholder="Monday" /></div>
+          </div>
+          <div class="toolbar" style="margin-top: 14px;">
+            <button id="addTaskBtn" type="button">Add Task</button>
+            <button id="clearTasksBtn" class="secondary" type="button">Clear Tasks</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>DSA Concept Summary</h3>
+          <div class="comparison-grid">
+            <div class="comparison-item">
+              <strong>Arrays</strong>
+              <p class="subtle">Fast indexing, fixed weekly slots, and predictable traversal.</p>
+            </div>
+            <div class="comparison-item">
+              <strong>Linked Lists</strong>
+              <p class="subtle">Dynamic add/delete operations for task changes.</p>
+            </div>
+          </div>
+          <p class="helper" style="margin-top: 12px;">The backend will sort tasks by priority and build the final study schedule from the saved file.</p>
+        </div>
+      </section>
+
+      <section class="grid two" style="margin-top: 18px;">
+        <div class="schedule-box">
+          <h3>Your Tasks</h3>
+          <div id="taskList" class="task-list"></div>
+        </div>
+        <div class="schedule-box">
+          <h3>Weekly Schedule</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Day</th>
+                  <th>Subject</th>
+                  <th>Task</th>
+                  <th>Hours</th>
+                  <th>Priority</th>
+                </tr>
+              </thead>
+              <tbody id="scheduleBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="output-box" style="margin-top: 18px;">
+        <h3>Backend Output</h3>
+        <p class="helper">Load the generated output after running the C++ backend.</p>
+        <pre id="outputText">No output loaded yet.</pre>
+      </section>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
