@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sorting Algorithms</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="page3">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-badge">📚</div>
+      <div>
+        <h1>Study Helper</h1>
+        <p>Create your study plan & learn algorithms</p>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html" data-page="index">Home <span>Start here</span></a>
+      <a href="page1.html" data-page="page1">My Tasks <span>Organize & plan</span></a>
+      <a href="page2.html" data-page="page2">Topics Map <span>How they connect</span></a>
+      <a href="page3.html" data-page="page3">Sort Tasks <span>By importance</span></a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="page-shell fade-in">
+      <section class="hero">
+        <div class="hero-top">
+          <div>
+            <h2>Algorithm Comparator</h2>
+            <p>Enter task priorities, select the preferred algorithm, and compare Bubble Sort with Merge Sort.</p>
+          </div>
+          <div class="toolbar">
+            <button class="secondary" data-action="choose-folder" type="button">Choose Data Folder</button>
+            <button data-action="save-input" type="button">Save input.txt</button>
+            <button class="secondary" data-action="run-backend" type="button">Run Backend</button>
+            <button class="secondary" data-action="load-output" type="button">Load output.txt</button>
+          </div>
+        </div>
+        <div class="status" id="statusMessage">Add task priorities and compare the sorting output.</div>
+      </section>
+
+      <section class="grid two">
+        <div class="panel">
+          <h3>Arrange Your Tasks</h3>
+          <div class="form-grid">
+            <div class="field"><label for="priorityTaskName">Task Name</label><input id="priorityTaskName" type="text" placeholder="e.g., Revise graphs" /></div>
+            <div class="field"><label for="priorityValue">How Important? (1-5)</label><input id="priorityValue" type="number" min="1" max="5" value="3" /></div>
+          </div>
+          <div class="toolbar" style="margin-top: 14px;">
+            <button id="addPriorityBtn" type="button">Add Task</button>
+            <button id="clearPriorityBtn" class="secondary" type="button">Clear Tasks</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>DSA Complexity Table</h3>
+          <div class="comparison-grid">
+            <div class="comparison-item">
+              <strong>Bubble Sort</strong>
+              <p class="subtle">Best: O(n), Average: O(n²), Worst: O(n²), Space: O(1)</p>
+            </div>
+            <div class="comparison-item">
+              <strong>Merge Sort</strong>
+              <p class="subtle">Best: O(n log n), Average: O(n log n), Worst: O(n log n), Space: O(n)</p>
+            </div>
+          </div>
+          <p class="helper" style="margin-top: 12px;">The backend measures execution time in microseconds and milliseconds for both algorithms.</p>
+        </div>
+      </section>
+
+      <section class="grid two" style="margin-top: 18px;">
+        <div class="schedule-box">
+          <h3>Your Tasks</h3>
+          <div id="priorityList" class="priority-list"></div>
+        </div>
+        <div class="comparison-box">
+          <h3>Sorting Methods</h3>
+          <p id="prioritySummary" class="helper">Add tasks to see how they're arranged by importance.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Speed</th>
+                <th>Memory</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Simple</td>
+                <td>Slower for many items</td>
+                <td>Uses very little</td>
+              </tr>
+              <tr>
+                <td>Fast</td>
+                <td>Faster for many items</td>
+                <td>Uses more</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="output-box" style="margin-top: 18px;">
+        <h3>Best Algorithm Recommendation</h3>
+        <div id="recommendationBox" class="comparison-item" style="display: none; padding: 16px; background: #f0f8ff; border-radius: 8px; margin-bottom: 18px;">
+          <strong id="recommendationTitle">Based on your data...</strong>
+          <p id="recommendationText" class="subtle"></p>
+        </div>
+        <h3>Backend Output</h3>
+        <pre id="outputText">No output loaded yet.</pre>
+      </section>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
